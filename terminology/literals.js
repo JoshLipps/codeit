@@ -1,4 +1,4 @@
-//"use strict"; don't globally do this? how weird , modular code for the win
+//"use strict"; //don't globally do this? how weird , modular code for the win
 
 //empty Object literal
 var o = {};
@@ -11,4 +11,3 @@ var o2 = {
    bool: true,
    regex: /match[a-z]/gmi
 };
-

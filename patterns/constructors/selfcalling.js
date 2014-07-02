@@ -1,13 +1,15 @@
-use strict;
+
 
 //self calling constructor
 
 function Something() {
-   if(!(this instanceof Something)){
-      return new Something();
-   }
+  "use strict";
+  
+  if(!(this instanceof Something)){
+    return new Something();
+  }
 
-   this.property = "value";
+  this.property = "value";
 }
 
 var thing = new Something();
