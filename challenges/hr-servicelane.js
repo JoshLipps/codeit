@@ -1,4 +1,13 @@
-//https://www.hackerrank.com/challenges/service-lane
+//'use strict';
+/*global process*/
+
+/*
+https://www.hackerrank.com/challenges/service-lane
+Input Format
+The first line of input contains two integers - N & T, where N is the length of the freeway, and T is the number of test cases. The next line has N space separated integers which represents the width array.
+
+T test cases follow. Each test case contains two integers - i & j, where i is the index of segment through which Calvin enters the service lane and j is the index of the lane segment where he exits.
+*/
 
 var __input_stdin = "";
 var __input_stdin_array = "";
@@ -23,12 +32,6 @@ function serviceLane(widths, tests) {
     return tested.join("\n");
 }
 
-/*
-Input Format
-The first line of input contains two integers - N & T, where N is the length of the freeway, and T is the number of test cases. The next line has N space separated integers which represents the width array.
-
-T test cases follow. Each test case contains two integers - i & j, where i is the index of segment through which Calvin enters the service lane and j is the index of the lane segment where he exits.
-*/
 process.stdin.on('end', function () {
     __input_stdin_array = __input_stdin.split("\n");
     var res = null;

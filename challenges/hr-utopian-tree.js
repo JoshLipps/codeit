@@ -1,15 +1,4 @@
-
-
-var __input_stdin = "";
-var __input_stdin_array = "";
-var __input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-    __input_stdin += data;
-});
-
-
-
+/*global process*/
 /*
 https://www.hackerrank.com/challenges/utopian-tree
 Input Format
@@ -23,31 +12,46 @@ Constraints
 Output Format
 For each test case, print the height of the Utopian tree after N cycles.
 */
-process.stdin.on('end', function () {
-    __input_stdin_array = __input_stdin.split("\n");
-    var res = null;
-    var test = 0;
-    var tests = [];
-    var solutions = [];
 
-    //burn N
-    __input_currentline += 1;
+//monsoon *= 2 ;summer += 1
+function utopianTree(season) {
+  'use strict';
+  var nextSeason = season - 1;
+
+  //base hight of tree is 1
+  if(season === 0){
+    return 1;
+  //even seasons are summer
+  } else if( (season % 2) === 0 ) {
+    return ( utopianTree(nextSeason) + 1 );
+  //other(odd) seasons are monsoon
+  } else {
+    return ( utopianTree(nextSeason) * 2 );
+  }
+}
 
 
-    //grab tests
-    for(__input_currentline;__input_currentline < __input_stdin_array.length; __input_currentline +=1) {
-      test = parseInt( __input_stdin_array[__input_currentline].trim() );
-      if( typeof test === "number"){
-        tests.push(test);
-      }
-    }
-    //tests.pop();//drop off empty row
-    //console.dir(tests);
-    tests.forEach(function(e,i,a) {
-      solutions[i] = utopianTree(e);
-    });
+function processData(input) {
+  'use strict';
+  var parse_fun = function (s) { return parseInt(s, 10); };
 
-    res = solutions.join("");
-    process.stdout.write(""+res+"\n");
+  var lines = input.split('\n');
+  var T = parse_fun(lines.shift());
 
-});
+  var data = lines.splice(0, T).map(parse_fun);
+  var solutions = [];
+  var res = "";
+
+  // logic here
+  solutions = data.map(utopianTree);
+
+  res = solutions.join("\n");
+  process.stdout.write(""+res+"\n");
+
+}
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+var _input = "";
+process.stdin.on("data", function (input) { _input += input; });
+process.stdin.on("end", function () { processData(_input); });
