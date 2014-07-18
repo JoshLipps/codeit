@@ -1,10 +1,15 @@
 /*global process*/
 /*
-<PROBLEM STATEMENT>
+https://www.hackerrank.com/challenges/halloween-party
 */
 
-function foo(bar){
-  return bar;
+function chocoCuts(cuts){
+  var half = (cuts / 2);
+  //magic for odds
+  var high = Math.floor(half);
+  var low = Math.ceil(half);
+
+  return ( high * low) ;
 }
 
 function processData(input) {
@@ -15,12 +20,15 @@ function processData(input) {
   var T = parse_fun(lines.shift());
 
   var data = lines.splice(0, T).map(parse_fun);
+  var solutions = [];
   var res = "";
   // logic here
 
-  res = foo(data);
-  
-  process.stdout.write(""+res+"\n");
+  solutions = data.map(chocoCuts);
+
+  res = solutions.join("\n");
+
+  process.stdout.write("" + res + "\n");
   }
 
 process.stdin.resume();
