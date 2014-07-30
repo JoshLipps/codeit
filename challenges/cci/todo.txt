@@ -1,0 +1,51 @@
+Do these ones:
+
+General practice:
+
+1.1
+Implement an algorithm to determine if a string has all unique characters.
+What if you cannot use additional data structures?
+
+1.5
+Implement a method to perform basic string compression using the counts of
+repeated characters. For example, the string aabcccccaaa would become a2blc5a3.
+If the "compressed" string would not become smaller than the orig-
+inal string, your method should return the original string.
+
+1.6 (in-place version)
+Given an image represented by an NxN matrix, where each pixel in the image is
+4 bytes, write a method to rotate the image by 90 degrees.
+Can you do this in place?
+
+Linked Lists:
+
+2.2
+Implement an algorithm to find the kth to last element of a singly linked list.
+
+2.4
+Write code to partition a linked list around a value x, such that all nodes
+less than x come before all nodes greater than or equal to x.
+
+Stacks and Queues:
+
+3.2
+
+How would you design a stack which, in addition to push and pop, also has
+a function min which returns the minimum element?
+Push, pop and min should all operate in O(1) time.
+
+
+Trees and Graphs:
+
+4.1 (easy)
+Implement a function to check if a binary tree is balanced. For the purposes of
+this question, a balanced tree is defined to be a tree such that the heights of
+the two subtrees of any node never differ by more than one.
+
+
+4.3 (hard)
+Given a sorted (increasingorder) array with unique integer elements, write an
+algorithm to createa binary search tree with minimal height.
+
+4.5
+Implement a function to check if a binary tree is a binary search tree.
