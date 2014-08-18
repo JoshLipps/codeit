@@ -12,45 +12,32 @@ var bst =  (function binarySearchTree(){
   }
 
   function insert(data){
-    var newData = new Node(data,null,null);
+    if(!data) return;
 
+    //create BSTNode with data
+    var node = new Node(data, null, null);
 
-    if(root === null){
-      root = newData;
-      return; //return on insert
-    }
-
-    var current = root;
-
-    while( current !== null ){
-
-      if( newData.value < current.value ){
-
-        //left empty insert left
-        if( current.left === null ){
-          // less than left insert left
-          current.left = newData;
-          return; //return on insert
-
-        //restart loop with left node
-        } else{
-          current = current.left;
-        }
-
-      // greater-than-equal insert right
-      } else{
-        if( current.right === null ){
-
-          current.right = newData;
-          return; //return on insert
-
-        } else{
-          current = current.right;
-        }
-      }
-    }
+    //call recursive Insert
+    root = insertRecurse(node, root);
   }
 
+  function insertRecurse(data, current){
+    if(current === null){
+      return data;
+    }
+
+    console.dir(root);
+    console.dir(current);
+
+    if(data.value < current.value){
+      current.left = insertRecurse(data, current.left);
+    } else{
+      current.right = insertRecurse(data, current.right);
+    }
+
+    //returns self if no insert
+    return current;
+  }
 
   function search(value){
 
@@ -83,6 +70,6 @@ bst.insert(3);
 bst.insert(4);
 bst.insert(6);
 
-bst.inOrder(function printVal(value){
-  console.log(value);
+bst.inOrder(function printVal(data){
+  console.log(data);
 });
