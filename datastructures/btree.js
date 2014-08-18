@@ -26,9 +26,6 @@ var bst =  (function binarySearchTree(){
       return data;
     }
 
-    console.dir(root);
-    console.dir(current);
-
     if(data.value < current.value){
       current.left = insertRecurse(data, current.left);
     } else{
